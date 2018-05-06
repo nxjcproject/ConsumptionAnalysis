@@ -157,10 +157,11 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
                 for (int i = 0; i < myResultTable.Rows.Count; i++)
                 {
                     int m_RunLevelChangedCount = (int)myResultTable.Rows[i]["runLevelChangedCount"];
-                    if (m_RunLevelChangedCount > 1)
+                    if (m_RunLevelChangedCount > 0)
                     {
-                        myResultTable.Rows[i]["runLevel"] = (decimal)myResultTable.Rows[i]["runLevel"] / m_RunLevelChangedCount;
+                        myResultTable.Rows[i]["runLevel"] = 100 * (decimal)myResultTable.Rows[i]["runLevel"] / m_RunLevelChangedCount;
                     }
+
                 }
             }
         }
