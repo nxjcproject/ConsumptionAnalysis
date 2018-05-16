@@ -15,6 +15,80 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
+
+            Dictionary<string, string> m_ColumnIndexContrast = new Dictionary<string, string>();
+            m_ColumnIndexContrast.Add("clinker_MixtureMaterialsOutput", "2");
+            m_ColumnIndexContrast.Add("clinker_PulverizedCoalOutput", "5");
+            m_ColumnIndexContrast.Add("clinker_ClinkerOutput", "8");
+            m_ColumnIndexContrast.Add("MixtureMaterialsOutput_Checked", "1");
+            m_ColumnIndexContrast.Add("PulverizedCoalOutput_Checked", "4");
+            m_ColumnIndexContrast.Add("ClinkerOutput_Checked", "7");
+            m_ColumnIndexContrast.Add("MixtureMaterialsOutput_Ratio", "3");
+            m_ColumnIndexContrast.Add("PulverizedCoalOutput_Ratio", "6");
+            m_ColumnIndexContrast.Add("ClinkerOutput_Ratio", "9");
+
+            DataTable table = GetDCSProductionValue(searchDate, myOganizationIds, dataFactory);
+            DataTable CheckedDataTable = GetCheckedProductionValue(searchDate, myOganizationIds, dataFactory);
+            DataTable m_ResultTable = GetResultDataTable();
+            if (table != null)
+            {
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    string m_CompanyNameTemp = table.Rows[i]["CompanyName"].ToString();
+                    string m_ProductLineTemp = table.Rows[i]["ProductionLine"].ToString();
+                    string m_VariableIdTemp = table.Rows[i]["VariableId"].ToString();
+                    DataRow[] m_ResultRowTemp = m_ResultTable.Select(string.Format("CompanyName = '{0}' and ProductionLine = '{1}'", m_CompanyNameTemp, m_ProductLineTemp));
+                    if (m_ResultRowTemp.Length > 0)          //表示已经有改行
+                    {
+                        m_ResultRowTemp[0][m_ColumnIndexContrast[m_VariableIdTemp]] = table.Rows[i]["TotalPeakValleyFlatB"] != DBNull.Value ? (decimal)table.Rows[i]["TotalPeakValleyFlatB"] : 0.00m;
+                    }
+                    else
+                    {
+                        DataRow m_NewRowTemp = m_ResultTable.NewRow();
+                        m_NewRowTemp["CompanyName"] = m_CompanyNameTemp;
+                        m_NewRowTemp["ProductionLine"] = m_ProductLineTemp;
+                        m_NewRowTemp[m_ColumnIndexContrast[m_VariableIdTemp]] = table.Rows[i]["TotalPeakValleyFlatB"] != DBNull.Value ? (decimal)table.Rows[i]["TotalPeakValleyFlatB"] : 0.00m;
+                        m_ResultTable.Rows.Add(m_NewRowTemp);
+                    }
+                }
+            }
+            if (CheckedDataTable != null)
+            {
+                for (int i = 0; i < CheckedDataTable.Rows.Count; i++)
+                {
+                    string m_CompanyNameTemp = CheckedDataTable.Rows[i]["CompanyName"].ToString();
+                    string m_ProductLineTemp = CheckedDataTable.Rows[i]["ProductionLine"].ToString();
+                    string m_VariableIdTemp = CheckedDataTable.Rows[i]["VariableId"].ToString();
+                    DataRow[] m_ResultRowTemp = m_ResultTable.Select(string.Format("CompanyName = '{0}' and ProductionLine = '{1}'", m_CompanyNameTemp, m_ProductLineTemp));
+                    if (m_ResultRowTemp.Length > 0)          //表示已经有改行
+                    {
+                        m_ResultRowTemp[0][m_ColumnIndexContrast[m_VariableIdTemp]] = CheckedDataTable.Rows[i]["DataValue"] != DBNull.Value ? (decimal)CheckedDataTable.Rows[i]["DataValue"] : 0.00m;
+                    }
+                    else
+                    {
+                        DataRow m_NewRowTemp = m_ResultTable.NewRow();
+                        m_NewRowTemp["CompanyName"] = m_CompanyNameTemp;
+                        m_NewRowTemp["ProductionLine"] = m_ProductLineTemp;
+                        m_NewRowTemp[m_ColumnIndexContrast[m_VariableIdTemp]] = CheckedDataTable.Rows[i]["DataValue"] != DBNull.Value ? (decimal)CheckedDataTable.Rows[i]["DataValue"] : 0.00m;
+                        m_ResultTable.Rows.Add(m_NewRowTemp);
+                    }
+                }
+            }
+            for (int i = 0; i < m_ResultTable.Rows.Count; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    //string cc = m_ResultTable.Rows[i][(1 * j + 3).ToString()].ToString();
+                    if (m_ResultTable.Rows[i][(3 * j + 1).ToString()] != DBNull.Value && m_ResultTable.Rows[i][(3 * j + 2).ToString()] != DBNull.Value)
+                    {
+                        m_ResultTable.Rows[i][(3 * j + 3).ToString()] = (100 * ((decimal)m_ResultTable.Rows[i][(3 * j + 1).ToString()] - (decimal)m_ResultTable.Rows[i][(3 * j + 2).ToString()]) / (decimal)m_ResultTable.Rows[i][(3 * j + 1).ToString()]).ToString("00.00") + "%";
+                    }
+                }
+            }
+            return m_ResultTable;
+        }
+        private static DataTable GetDCSProductionValue(string searchDate, string[] myOganizationIds, ISqlServerDataFactory dataFactory)
+        {
             string m_VariableId = "'clinker_ClinkerOutput', 'clinker_MixtureMaterialsOutput','clinker_PulverizedCoalOutput'";
             string m_OrganizationCondition = "";
             for (int i = 0; i < myOganizationIds.Length; i++)
@@ -49,37 +123,97 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
                                 and F.LevelType = 'Factory'
                                 group by E.Name, F.Name, D.Name, B.VariableId
                                 order by E.Name, D.Name, B.VariableId";
-            DataTable table = dataFactory.Query(string.Format(queryString, searchDate, m_OrganizationCondition, m_VariableId));
-            DataTable m_ResultTable = GetResultDataTable();
-            if (table != null)
+            try
             {
-                Dictionary<string, string> m_ColumnIndexContrast = new Dictionary<string, string>();          
-                m_ColumnIndexContrast.Add("clinker_MixtureMaterialsOutput","2");
-                m_ColumnIndexContrast.Add("clinker_PulverizedCoalOutput","5");
-                m_ColumnIndexContrast.Add("clinker_ClinkerOutput","8");
-
-                for (int i = 0; i < table.Rows.Count; i++)
+                DataTable table = dataFactory.Query(string.Format(queryString, searchDate, m_OrganizationCondition, m_VariableId));
+                return table;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        private static DataTable GetCheckedProductionValue(string searchDate, string[] myOganizationIds, ISqlServerDataFactory dataFactory)
+        {
+            string m_MaxTimeCondtion = GetMaxTimeCondtion(searchDate, dataFactory);
+            string m_VariableId = "'ClinkerOutput_Checked', 'MixtureMaterialsOutput_Checked','PulverizedCoalOutput_Checked'";
+            string m_OrganizationCondition = "";
+            for (int i = 0; i < myOganizationIds.Length; i++)
+            {
+                if (i == 0)
                 {
-                    string m_CompanyNameTemp = table.Rows[i]["CompanyName"].ToString();
-                    string m_ProductLineTemp = table.Rows[i]["ProductionLine"].ToString();
-                    string m_VariableIdTemp = table.Rows[i]["VariableId"].ToString();
-                    DataRow[] m_ResultRowTemp = m_ResultTable.Select(string.Format("CompanyName = '{0}' and ProductionLine = '{1}'", m_CompanyNameTemp, m_ProductLineTemp));
-                    if (m_ResultRowTemp.Length > 0)          //表示已经有改行
-                    {
-                        m_ResultRowTemp[0][m_ColumnIndexContrast[m_VariableIdTemp]] = table.Rows[i]["TotalPeakValleyFlatB"] != DBNull.Value ? (decimal)table.Rows[i]["TotalPeakValleyFlatB"] : 0.00m;
-                    }
-                    else
-                    {
-                        DataRow m_NewRowTemp = m_ResultTable.NewRow();
-                        m_NewRowTemp["CompanyName"] = m_CompanyNameTemp;
-                        m_NewRowTemp["ProductionLine"] = m_ProductLineTemp;
-                        m_NewRowTemp[m_ColumnIndexContrast[m_VariableIdTemp]] = table.Rows[i]["TotalPeakValleyFlatB"] != DBNull.Value ? (decimal)table.Rows[i]["TotalPeakValleyFlatB"] : 0.00m;
-                        m_ResultTable.Rows.Add(m_NewRowTemp);
-                    }
+                    m_OrganizationCondition = "'" + myOganizationIds[i] + "'";
+                }
+                else
+                {
+                    m_OrganizationCondition = m_OrganizationCondition + ",'" + myOganizationIds[i] + "'";
                 }
             }
-
-            return m_ResultTable;
+            string queryString = @"Select E.Name as CompanyName
+	                                    ,F.Name as FacotoryName
+	                                    ,replace(replace(replace(replace(D.Name,'号','#'),'窑',''),'熟料',''),'线','') as ProductionLine
+	                                    ,B.VariableId
+	                                    ,B.[DataValue] as [DataValue]
+                                from system_EnergyDataManualInput B, system_Organization C, system_Organization D, system_Organization E, system_Organization F
+                                where B.VariableId in ({2})
+                                {0}
+                                and B.OrganizationID = D.OrganizationID
+                                and C.OrganizationID in ({1})
+                                and D.levelCode like C.LevelCode + '%'
+                                and D.LevelType = 'ProductionLine'
+                                and charindex(E.LevelCode, D.LevelCode) > 0
+                                and E.LevelType = 'Company'
+                                and charindex(F.LevelCode, D.LevelCode) > 0
+                                and F.LevelType = 'Factory'
+                                order by E.Name, D.Name, B.VariableId";
+            try
+            {
+                queryString = string.Format(queryString, m_MaxTimeCondtion, m_OrganizationCondition, m_VariableId);
+                DataTable table = dataFactory.Query(queryString);
+                return table;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        private static string GetMaxTimeCondtion(string searchDate, ISqlServerDataFactory dataFactory)
+        {
+            DateTime m_StartTime = DateTime.Parse(searchDate + "-01");
+            string queryString = @"Select A.VariableId, max(A.TimeStamp) as TimeStamp from system_EnergyDataManualInput A 
+                                     where A.TimeStamp >= '{0}' and A.TimeStamp <= '{1}'
+                                     group by A.VariableId";
+            queryString = string.Format(queryString, m_StartTime.ToString("yyyy-MM-dd"), m_StartTime.AddMonths(1).AddDays(-1).ToString("yyyy-MM-dd"));
+            string m_ReturnString = "";
+            try
+            {
+                DataTable table = dataFactory.Query(queryString);
+                if (table != null && table.Rows.Count > 0)
+                {
+                    for (int i = 0; i < table.Rows.Count; i++)
+                    {
+                        if(i==0)
+                        {
+                            m_ReturnString = string.Format(" (B.VariableId = '{0}' and B.TimeStamp = '{1}')", table.Rows[i]["VariableId"].ToString(), table.Rows[i]["TimeStamp"].ToString());
+                        }
+                        else
+                        {
+                            m_ReturnString = m_ReturnString + string.Format(" or (B.VariableId = '{0}' and B.TimeStamp = '{1}')", table.Rows[i]["VariableId"].ToString(), table.Rows[i]["TimeStamp"].ToString());
+                        }
+                    }
+                    m_ReturnString = " and (" + m_ReturnString + ")";
+                }
+                else
+                {
+                    m_ReturnString = string.Format(" and B.TimeStamp >= '{0}' and B.TimeStamp <= '{1}' ", m_StartTime.ToString("yyyy-MM-dd"), m_StartTime.AddMonths(1).AddDays(-1).ToString("yyyy-MM-dd"));
+                }
+                return m_ReturnString;
+            }
+            catch
+            {
+                m_ReturnString = string.Format(" and B.TimeStamp >= '{0}' and B.TimeStamp <= '{1}' ", m_StartTime.ToString("yyyy-MM-dd"), m_StartTime.AddMonths(1).AddDays(-1).ToString("yyyy-MM-dd"));
+                return m_ReturnString;
+            }
         }
         private static DataTable GetResultDataTable()
         {

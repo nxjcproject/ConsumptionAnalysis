@@ -16,7 +16,7 @@ namespace ConsumptionAnalysisReport.UI_ConsumptionAnalysisReport
         {
 #if DEBUG
             ////////////////////调试用,自定义的数据授权
-            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx", "zc_nxjc_ychc" };
+            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx", "zc_nxjc_ychc","zc_nxjc_znc" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif

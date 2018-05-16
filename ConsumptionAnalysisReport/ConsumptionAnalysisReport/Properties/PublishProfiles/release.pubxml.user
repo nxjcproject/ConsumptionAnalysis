@@ -11,13 +11,13 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ConsumptionAnalysisReport.dll">
-      <publishTime>05/06/2018 09:13:02</publishTime>
+      <publishTime>05/16/2018 19:06:02</publishTime>
     </File>
     <File Include="bin/ConsumptionAnalysisReport.Infrastructure.dll">
       <publishTime>05/05/2018 15:53:05</publishTime>
     </File>
     <File Include="bin/ConsumptionAnalysisReport.Service.dll">
-      <publishTime>05/06/2018 09:13:01</publishTime>
+      <publishTime>05/16/2018 19:06:01</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
       <publishTime>08/11/2017 11:07:18</publishTime>
@@ -4703,7 +4703,7 @@
       <publishTime>12/16/2017 10:50:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/06/2018 09:13:03</publishTime>
+      <publishTime>05/16/2018 19:06:07</publishTime>
     </File>
   </ItemGroup>
 </Project>
