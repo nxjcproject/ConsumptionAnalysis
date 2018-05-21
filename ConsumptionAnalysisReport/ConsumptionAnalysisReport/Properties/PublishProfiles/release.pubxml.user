@@ -11,13 +11,13 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ConsumptionAnalysisReport.dll">
-      <publishTime>05/16/2018 19:06:02</publishTime>
+      <publishTime>05/21/2018 09:17:50</publishTime>
     </File>
     <File Include="bin/ConsumptionAnalysisReport.Infrastructure.dll">
       <publishTime>05/05/2018 15:53:05</publishTime>
     </File>
     <File Include="bin/ConsumptionAnalysisReport.Service.dll">
-      <publishTime>05/16/2018 19:06:01</publishTime>
+      <publishTime>05/21/2018 09:17:49</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
       <publishTime>08/11/2017 11:07:18</publishTime>
@@ -4652,7 +4652,7 @@
       <publishTime>03/02/2018 16:04:38</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/HuiZhuanYaoProductionCount.js">
-      <publishTime>12/17/2017 16:57:44</publishTime>
+      <publishTime>05/20/2018 15:33:08</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/MeiFenZhiBeiConsumption.js">
       <publishTime>12/17/2017 16:57:44</publishTime>
@@ -4691,19 +4691,19 @@
       <publishTime>12/16/2017 10:43:16</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShengLiaoShuiNiConsumption.aspx">
-      <publishTime>12/17/2017 13:39:10</publishTime>
+      <publishTime>05/21/2018 09:12:03</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShengLiaoZhiBeiConsumption.aspx">
-      <publishTime>12/17/2017 14:58:34</publishTime>
+      <publishTime>05/21/2018 09:05:43</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShuiNiFenMoFengGuPingConsumption.aspx">
-      <publishTime>12/16/2017 11:22:06</publishTime>
+      <publishTime>05/21/2018 09:12:03</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShuLiaoShaoChengConsumption.aspx">
       <publishTime>12/16/2017 10:50:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/16/2018 19:06:07</publishTime>
+      <publishTime>05/21/2018 09:17:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

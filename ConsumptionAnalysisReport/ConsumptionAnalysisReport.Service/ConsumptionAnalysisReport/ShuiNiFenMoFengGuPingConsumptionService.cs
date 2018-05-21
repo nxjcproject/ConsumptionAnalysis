@@ -14,7 +14,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
-            string m_VariableId = "cementGrind_ElectricityQuantity";
+            string m_VariableId = "cementPreparation_ElectricityQuantity";
             string m_OrganizationCondition = "";
             for (int i = 0; i < myOganizationIds.Length; i++)
             {

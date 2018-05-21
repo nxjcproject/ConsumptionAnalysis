@@ -34,3 +34,13 @@ C:\工作\编程\宁夏建材\三层框架V3.1\ConsumptionAnalysis\ConsumptionAn
 C:\工作\编程\宁夏建材\三层框架V3.1\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.csprojResolveAssemblyReference.cache
 C:\工作\编程\宁夏建材\三层框架V3.1\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.dll
 C:\工作\编程\宁夏建材\三层框架V3.1\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\ConsumptionAnalysisReport.Service.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\ConsumptionAnalysisReport.Service.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\ConsumptionAnalysisReport.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\EnergyConsumption.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\SqlServerDataAdapter.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\ConsumptionAnalysisReport.Infrastructure.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\RunIndicators.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.csprojResolveAssemblyReference.cache
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.pdb

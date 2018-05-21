@@ -50,14 +50,14 @@ function LoadDataGrid(myData) {
            { width: '320', title: '生料产量', colspan: 3, align: 'center' },
            { width: '320', title: '煤粉产量', colspan: 3, align: 'center' },
            { width: '320', title: '熟料产量', colspan: 3, align: 'center' }],
-           [{ width: '120', title: '盘库', field: '1', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(0, value, row, index); } },
-            { width: '120', title: 'DCS', field: '2', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(1, value, row, index); } },
+           [{ width: '120', title: '盘库', field: '1', align: 'center', styler: cellStyler_crosspurple },
+            { width: '120', title: 'DCS', field: '2', align: 'center', styler: cellStyler_crosspurple },
             { width: '80', title: '增减比例', field: '3', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(2, value, row, index); } },
-            { width: '120', title: '盘库', field: '4', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(3, value, row, index); } },
-            { width: '120', title: 'DCS', field: '5', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(4, value, row, index); } },
+            { width: '120', title: '盘库', field: '4', align: 'center', styler: cellStyler_crosspurple },
+            { width: '120', title: 'DCS', field: '5', align: 'center', styler: cellStyler_crosspurple },
             { width: '80', title: '增减比例', field: '6', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(5, value, row, index); } },
-            { width: '120', title: '盘库', field: '7', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(6, value, row, index); } },
-            { width: '120', title: 'DCS', field: '8', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(7, value, row, index); } },
+            { width: '120', title: '盘库', field: '7', align: 'center', styler: cellStyler_crosspurple },
+            { width: '120', title: 'DCS', field: '8', align: 'center', styler: cellStyler_crosspurple },
             { width: '80', title: '增减比例', field: '9', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(8, value, row, index); } }
         ]],
         onLoadSuccess: function (data) {
@@ -91,14 +91,12 @@ function SetMinMaxValue(myData) {
             for (var j = 0; j < MaxColumnCount; j++) {
                 var m_ValueTemp = myData["rows"][i][(j + 1).toString()];
                 if (m_ValueTemp != "") {
-                    var m_FloatValueTemp = parseFloat(m_ValueTemp);
-                    if (m_FloatValueTemp > 0) {
-                        if (MaxValueArray[j] < m_FloatValueTemp || MaxValueArray[j] == -1) {
-                            MaxValueArray[j] = m_FloatValueTemp;
-                        }
-                        if (MinValueArray[j] > m_FloatValueTemp || MinValueArray[j] == -1) {
-                            MinValueArray[j] = m_FloatValueTemp;
-                        }
+                    var m_FloatValueTemp = Math.abs(parseFloat(m_ValueTemp.replace("%", "")));//因为比较偏差,因此取绝对值
+                    if (MaxValueArray[j] < m_FloatValueTemp || MaxValueArray[j] == -1) {
+                        MaxValueArray[j] = m_FloatValueTemp;
+                    }
+                    if (MinValueArray[j] > m_FloatValueTemp || MinValueArray[j] == -1) {
+                        MinValueArray[j] = m_FloatValueTemp;
                     }
                 }
             }
@@ -108,11 +106,13 @@ function SetMinMaxValue(myData) {
 //////////////////////////增加配色方案/////////////////////////
 
 function SetBackgroundColor(myColumnIndex, value, row, index) {
-    if (value != undefined && value != null && value > 0) {
-        if (value == MaxValueArray[myColumnIndex]) {
+    if (value != undefined && value != null) {
+        var m_ValueTemp = Math.abs(parseFloat(value.replace("%")));
+        //////////////////////本次是计算偏差,因此绝对值越小越好//////////////////
+        if (m_ValueTemp == MaxValueArray[myColumnIndex]) {
             return 'background-color:#ff0000;';
         }
-        else if (value == MinValueArray[myColumnIndex]) {
+        else if (m_ValueTemp == MinValueArray[myColumnIndex]) {
             return 'background-color:#00ff00;';
         }
         else {

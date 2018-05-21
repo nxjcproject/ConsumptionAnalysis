@@ -121,8 +121,8 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
                                 and E.LevelType = 'Company'
                                 and charindex(F.LevelCode, D.LevelCode) > 0
                                 and F.LevelType = 'Factory'
-                                group by E.Name, F.Name, D.Name, B.VariableId
-                                order by E.Name, D.Name, B.VariableId";
+                                group by D.LevelCode, E.Name, F.Name, D.Name, B.VariableId
+                                order by D.LevelCode, E.Name, D.Name, B.VariableId";
             try
             {
                 DataTable table = dataFactory.Query(string.Format(queryString, searchDate, m_OrganizationCondition, m_VariableId));

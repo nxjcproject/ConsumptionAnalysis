@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>水泥粉磨工序峰谷平用电分析</title>
+    <title>水泥制备峰谷平用电分析</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/custom/easyui_datagrid_green.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
@@ -30,7 +30,7 @@
                 </div>
                 <div>
                     <div id="toolbar_ReportTable" style="display: none; text-align: center; vertical-align: middle; height: 30px; padding-top: 7px;">
-                        <span style="font-size: 18pt; color:white; font-weight:bold; font-family:SimHei">水泥粉磨工序峰谷平用电分析</span>
+                        <span style="font-size: 18pt; color:white; font-weight:bold; font-family:SimHei">水泥制备峰谷平用电分析</span>
                     </div>
                     <div data-options="border:false">
                         <table id="DataGrid_ReportTable" style="width: 1058px;"></table>

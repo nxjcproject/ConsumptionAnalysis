@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>生料制备工序峰谷平用电分析</title>
+    <title>生料制备峰谷平用电分析</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/custom/easyui_datagrid_green.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
