@@ -17,6 +17,7 @@
     <!--[if lt IE 8 ]><script type="text/javascript" src="/js/common/json2.min.js"></script><![endif]-->
     <script type="text/javascript" src="/lib/ealib/extend/jquery.PrintArea.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/extend/jquery.jqprint.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/common/PrintFile.js" charset="utf-8"></script> 
 
     <script type="text/javascript" src="js/page/MShuiNiZhiBeiConsumption.js" charset="utf-8"></script>
 </head>
@@ -26,7 +27,8 @@
             <div id="TableContentDiv">
                 <div style="height: 28px;margin-top:2px;">
                     <span style="margin-left: 15px;">查询时间：<input id="startDate" type="text" class="easyui-datebox" required="required" style="width: 100px;" /></span>
-                    <span style="margin-left: 10px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="QueryReportFun();">查询</a></span>
+                    <span style="margin-left: 10px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="QueryReportFun();">查询</a></span>
+                    <span style="margin-left: 10px;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-page_white_excel',plain:true" onclick="ExportFileFun();">导出</a></span>
                 </div>
                 <div>
                     <div id="toolbar_ReportTable" style="display: none; text-align: center; vertical-align: middle; height: 30px; padding-top: 7px;">

@@ -9,8 +9,9 @@ $(function () {
     QueryReportFun();
 });
 
+var m_SelectTime = '';
 function QueryReportFun() {
-    var m_SelectTime = $('#startDate').datebox('getValue');
+    m_SelectTime = $('#startDate').datebox('getValue');
     var win = $.messager.progress({
         title: '请稍后',
         msg: '数据载入中...'
@@ -47,8 +48,8 @@ function LoadDataGrid(myData) {
         columns: [[
            { width: '120', title: '公司名称', field: 'CompanyName', align: 'center', styler: cellStyler_lightgray },
            { width: '120', title: '生产线', field: 'ProductionLine', align: 'center', styler: cellStyler_crossred },
-           { width: '120', title: '废气处理', field: '1', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(0, value, row, index); } },
-           { width: '120', title: '尾排风机', field: '2', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(1, value, row, index); } },
+           { width: '120', title: '废气处理', field: 'A1', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(0, value, row, index); } },
+           { width: '120', title: '尾排风机', field: 'A2', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(1, value, row, index); } },
         ]],
         onLoadSuccess: function (data) {
             var rowmark = 1;
@@ -252,4 +253,42 @@ function myformatter(date) {
     //获取月份
     var m = date.getMonth() + 1;
     return y + '-' + m;
+}
+
+function ExportFileFun() {
+    var m_FunctionName = "ExcelStream";
+    var m_Parameter1 = GetDataGridTableHtml("DataGrid_ReportTable", "废气处理系统电耗对比分析", m_SelectTime);
+    var m_Parameter2 = "";
+
+    var m_ReplaceAlllt = new RegExp("<", "g");
+    var m_ReplaceAllgt = new RegExp(">", "g");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
+
+    var form = $("<form id = 'ExportFile'>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '');
+    form.attr('method', 'post');
+    form.attr('action', "FeiQiChuLiConsumption.aspx");
+
+    var input_Method = $('<input>');
+    input_Method.attr('type', 'hidden');
+    input_Method.attr('name', 'myFunctionName');
+    input_Method.attr('value', m_FunctionName);
+    var input_Data1 = $('<input>');
+    input_Data1.attr('type', 'hidden');
+    input_Data1.attr('name', 'myParameter1');
+    input_Data1.attr('value', m_Parameter1);
+    var input_Data2 = $('<input>');
+    input_Data2.attr('type', 'hidden');
+    input_Data2.attr('name', 'myParameter2');
+    input_Data2.attr('value', m_Parameter2);
+
+    $('body').append(form);  //将表单放置在web中 
+    form.append(input_Method);   //将查询参数控件提交到表单上
+    form.append(input_Data1);   //将查询参数控件提交到表单上
+    form.append(input_Data2);   //将查询参数控件提交到表单上
+    form.submit();
+    //释放生成的资源
+    form.remove();
 }

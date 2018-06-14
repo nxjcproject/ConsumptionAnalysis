@@ -11,13 +11,13 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ConsumptionAnalysisReport.dll">
-      <publishTime>05/21/2018 09:17:50</publishTime>
+      <publishTime>06/14/2018 11:08:50</publishTime>
     </File>
     <File Include="bin/ConsumptionAnalysisReport.Infrastructure.dll">
-      <publishTime>05/05/2018 15:53:05</publishTime>
+      <publishTime>06/14/2018 11:08:49</publishTime>
     </File>
     <File Include="bin/ConsumptionAnalysisReport.Service.dll">
-      <publishTime>05/21/2018 09:17:49</publishTime>
+      <publishTime>06/14/2018 11:08:50</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
       <publishTime>08/11/2017 11:07:18</publishTime>
@@ -37,8 +37,32 @@
     <File Include="bin/SqlServerDataAdapter.dll">
       <publishTime>07/29/2015 10:56:06</publishTime>
     </File>
+    <File Include="bin/UpDownLoadFiles.dll">
+      <publishTime>08/17/2017 20:03:32</publishTime>
+    </File>
     <File Include="bin/WebStyleBaseForEnergy.dll">
       <publishTime>07/06/2017 16:05:42</publishTime>
+    </File>
+    <File Include="js/common/components/Charts.js">
+      <publishTime>06/04/2018 15:51:47</publishTime>
+    </File>
+    <File Include="js/common/components/DataGrid.js">
+      <publishTime>06/04/2018 15:51:47</publishTime>
+    </File>
+    <File Include="js/common/components/GridChart.js">
+      <publishTime>06/04/2018 15:51:47</publishTime>
+    </File>
+    <File Include="js/common/components/WindowsDialog.js">
+      <publishTime>06/04/2018 15:51:47</publishTime>
+    </File>
+    <File Include="js/common/format/DateTimeFormat.js">
+      <publishTime>06/04/2018 15:51:47</publishTime>
+    </File>
+    <File Include="js/common/json2.min.js">
+      <publishTime>06/04/2018 15:51:47</publishTime>
+    </File>
+    <File Include="js/common/PrintFile.js">
+      <publishTime>06/04/2018 15:51:47</publishTime>
     </File>
     <File Include="lib/ealib/changelog.txt">
       <publishTime>12/08/2017 14:06:04</publishTime>
@@ -4631,79 +4655,79 @@
       <publishTime>12/08/2017 14:06:10</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ConsumptionAnalysisReport.aspx">
-      <publishTime>12/17/2017 11:47:26</publishTime>
+      <publishTime>06/04/2018 21:45:57</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/FeiQiChuLiConsumption.aspx">
-      <publishTime>12/17/2017 11:47:26</publishTime>
+      <publishTime>06/04/2018 21:45:47</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/HuiZhuanYaoConsumption.aspx">
-      <publishTime>12/16/2017 11:29:54</publishTime>
+      <publishTime>06/04/2018 21:45:41</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/HuiZhuanYaoProductionCount.aspx">
-      <publishTime>12/16/2017 11:27:14</publishTime>
+      <publishTime>06/04/2018 21:45:35</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/ConsumptionAnalysisReport.js">
       <publishTime>12/17/2017 16:57:44</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/FeiQiChuLiConsumption.js">
-      <publishTime>12/17/2017 16:57:44</publishTime>
+      <publishTime>06/04/2018 19:28:28</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/HuiZhuanYaoConsumption.js">
-      <publishTime>03/02/2018 16:04:38</publishTime>
+      <publishTime>06/04/2018 19:46:23</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/HuiZhuanYaoProductionCount.js">
-      <publishTime>05/20/2018 15:33:08</publishTime>
+      <publishTime>06/04/2018 20:10:31</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/MeiFenZhiBeiConsumption.js">
-      <publishTime>12/17/2017 16:57:44</publishTime>
+      <publishTime>06/04/2018 20:40:50</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/MShuiNiFenMoConsumption.js">
-      <publishTime>12/17/2017 16:57:44</publishTime>
+      <publishTime>06/04/2018 20:45:27</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/MShuiNiZhiBeiConsumption.js">
-      <publishTime>03/02/2018 16:06:08</publishTime>
+      <publishTime>06/04/2018 20:53:12</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/ShengLiaoFenMoConsumption.js">
-      <publishTime>12/17/2017 16:57:44</publishTime>
+      <publishTime>06/04/2018 19:30:35</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/ShengLiaoShuiNiConsumption.js">
-      <publishTime>12/17/2017 17:14:08</publishTime>
+      <publishTime>06/04/2018 21:24:39</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/ShengLiaoZhiBeiConsumption.js">
-      <publishTime>12/17/2017 17:11:26</publishTime>
+      <publishTime>06/04/2018 21:28:24</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/ShuiNiFenMoFengGuPingConsumption.js">
-      <publishTime>12/17/2017 17:07:16</publishTime>
+      <publishTime>06/04/2018 21:35:49</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/js/page/ShuLiaoShaoChengConsumption.js">
-      <publishTime>12/17/2017 16:57:44</publishTime>
+      <publishTime>06/04/2018 21:43:01</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/MeiFenZhiBeiConsumption.aspx">
-      <publishTime>12/16/2017 10:36:52</publishTime>
+      <publishTime>06/04/2018 21:45:29</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/MShuiNiFenMoConsumption.aspx">
-      <publishTime>12/17/2017 11:51:00</publishTime>
+      <publishTime>06/04/2018 21:45:24</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/MShuiNiZhiBeiConsumption.aspx">
-      <publishTime>12/17/2017 17:16:34</publishTime>
+      <publishTime>06/04/2018 21:45:18</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShengLiaoFenMoConsumption.aspx">
-      <publishTime>12/16/2017 10:43:16</publishTime>
+      <publishTime>06/04/2018 21:45:10</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShengLiaoShuiNiConsumption.aspx">
-      <publishTime>05/21/2018 09:12:03</publishTime>
+      <publishTime>06/04/2018 21:45:05</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShengLiaoZhiBeiConsumption.aspx">
-      <publishTime>05/21/2018 09:05:43</publishTime>
+      <publishTime>06/04/2018 21:44:59</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShuiNiFenMoFengGuPingConsumption.aspx">
-      <publishTime>05/21/2018 09:12:03</publishTime>
+      <publishTime>06/04/2018 21:44:54</publishTime>
     </File>
     <File Include="UI_ConsumptionAnalysisReport/ShuLiaoShaoChengConsumption.aspx">
-      <publishTime>12/16/2017 10:50:44</publishTime>
+      <publishTime>06/04/2018 21:44:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/21/2018 09:17:53</publishTime>
+      <publishTime>06/14/2018 11:08:55</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -6,3 +6,7 @@ C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysis\ConsumptionAn
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Infrastructure\bin\Release\ConsumptionAnalysisReport.Infrastructure.pdb
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Infrastructure\obj\Release\ConsumptionAnalysisReport.Infrastructure.dll
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Infrastructure\obj\Release\ConsumptionAnalysisReport.Infrastructure.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Infrastructure\bin\Release\ConsumptionAnalysisReport.Infrastructure.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Infrastructure\bin\Release\ConsumptionAnalysisReport.Infrastructure.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Infrastructure\obj\Release\ConsumptionAnalysisReport.Infrastructure.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Infrastructure\obj\Release\ConsumptionAnalysisReport.Infrastructure.pdb

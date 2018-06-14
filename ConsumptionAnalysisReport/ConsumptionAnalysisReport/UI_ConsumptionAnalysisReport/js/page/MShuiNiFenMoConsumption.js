@@ -9,8 +9,9 @@ $(function () {
     QueryReportFun();
 });
 
+var m_SelectTime = '';
 function QueryReportFun() {
-    var m_SelectTime = $('#startDate').datebox('getValue');
+    m_SelectTime = $('#startDate').datebox('getValue');
     var win = $.messager.progress({
         title: '请稍后',
         msg: '数据载入中...'
@@ -46,14 +47,14 @@ function LoadDataGrid(myData) {
         columns: [[
            { width: '120', title: '公司名称', field: 'CompanyName', align: 'center', styler: cellStyler_lightgray },
            { width: '80', title: '生产线', field: 'ProductionLine', align: 'center', styler: cellStyler_crossgreen },
-           { width: '100', title: '水泥粉磨', field: '1', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(0, value, row, index); } },
-           { width: '100', title: '辊压机', field: '2', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(1, value, row, index); } },
-           { width: '140', title: '辊压机循环提升机', field: '3', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(2, value, row, index); } },
-           { width: '125', title: '辊压机循环风机', field: '4', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(3, value, row, index); } },
-           { width: '100', title: '水泥磨', field: '5', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(4, value, row, index); } },
-           { width: '107', title: '水泥磨选粉剂', field: '6', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(5, value, row, index); } },
-           { width: '100', title: '出磨提升机', field: '7', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(6, value, row, index); } },
-           { width: '100', title: '磨尾排风机', field: '8', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(7, value, row, index); } }
+           { width: '100', title: '水泥粉磨', field: 'A1', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(0, value, row, index); } },
+           { width: '100', title: '辊压机', field: 'A2', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(1, value, row, index); } },
+           { width: '140', title: '辊压机循环提升机', field: 'A3', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(2, value, row, index); } },
+           { width: '125', title: '辊压机循环风机', field: 'A4', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(3, value, row, index); } },
+           { width: '100', title: '水泥磨', field: 'A5', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(4, value, row, index); } },
+           { width: '107', title: '水泥磨选粉剂', field: 'A6', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(5, value, row, index); } },
+           { width: '100', title: '出磨提升机', field: 'A7', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(6, value, row, index); } },
+           { width: '100', title: '磨尾排风机', field: 'A8', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(7, value, row, index); } }
         ]],
         onLoadSuccess: function (data) {
             var rowmark = 1;
@@ -255,4 +256,42 @@ function myformatter(date) {
     //获取月份
     var m = date.getMonth() + 1;
     return y + '-' + m;
+}
+
+function ExportFileFun() {
+    var m_FunctionName = "ExcelStream";
+    var m_Parameter1 = GetDataGridTableHtml("DataGrid_ReportTable", "4.2m水泥粉磨系统电耗对比分析", m_SelectTime);
+    var m_Parameter2 = "";
+
+    var m_ReplaceAlllt = new RegExp("<", "g");
+    var m_ReplaceAllgt = new RegExp(">", "g");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
+
+    var form = $("<form id = 'ExportFile'>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '');
+    form.attr('method', 'post');
+    form.attr('action', "MShuiNiFenMoConsumption.aspx");
+
+    var input_Method = $('<input>');
+    input_Method.attr('type', 'hidden');
+    input_Method.attr('name', 'myFunctionName');
+    input_Method.attr('value', m_FunctionName);
+    var input_Data1 = $('<input>');
+    input_Data1.attr('type', 'hidden');
+    input_Data1.attr('name', 'myParameter1');
+    input_Data1.attr('value', m_Parameter1);
+    var input_Data2 = $('<input>');
+    input_Data2.attr('type', 'hidden');
+    input_Data2.attr('name', 'myParameter2');
+    input_Data2.attr('value', m_Parameter2);
+
+    $('body').append(form);  //将表单放置在web中 
+    form.append(input_Method);   //将查询参数控件提交到表单上
+    form.append(input_Data1);   //将查询参数控件提交到表单上
+    form.append(input_Data2);   //将查询参数控件提交到表单上
+    form.submit();
+    //释放生成的资源
+    form.remove();
 }

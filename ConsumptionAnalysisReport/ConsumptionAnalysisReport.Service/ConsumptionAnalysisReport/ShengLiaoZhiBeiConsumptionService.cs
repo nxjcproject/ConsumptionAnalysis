@@ -32,14 +32,14 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             string queryString = @"Select M.Name as CompanyName
                                         ,Z.OrganizationID as OrganizationId
                                         , case when Z.OrganizationID = M.OrganizationID then '合计' else replace(replace(replace(replace(N.Name,'号','#'),'窑',''),'熟料',''),'线','') end as ProductLine
+                                        ,Z.runLevel
                                         , Z.PeakB
                                         , Z.ValleyB
                                         , Z.FlatB
                                         , Z.TotalPeakValleyFlatB
                                         ,case when Z.TotalPeakValleyFlatB <> 0 then convert(varchar(32),convert(decimal(18,2),100 * Z.PeakB / Z.TotalPeakValleyFlatB)) + '%' else '0' end as PeakBproportion
                                         ,case when Z.TotalPeakValleyFlatB <> 0 then convert(varchar(32),convert(decimal(18,2),100 * Z.ValleyB / Z.TotalPeakValleyFlatB)) + '%' else '0' end as ValleyBproportion
-                                        ,case when Z.TotalPeakValleyFlatB <> 0 then convert(varchar(32),convert(decimal(18,2),100 * Z.FlatB / Z.TotalPeakValleyFlatB)) + '%' else '0' end as FlatBproportion
-                                        ,Z.runLevel
+                                        ,case when Z.TotalPeakValleyFlatB <> 0 then convert(varchar(32),convert(decimal(18,2),100 * Z.FlatB / Z.TotalPeakValleyFlatB)) + '%' else '0' end as FlatBproportion                                       
                                         ,0 as runLevelChangedCount
                                         from system_Organization M, system_Organization N
                                         ,(Select B.OrganizationID as OrganizationID
@@ -165,6 +165,13 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
                 }
             }
         }
-    }
 
+        public static void ExportExcelFile(string myFileType, string myFileName, string myData)
+        {
+            if (myFileType == "xls")
+            {
+                UpDownLoadFiles.DownloadFile.ExportExcelFile(myFileName, myData);
+            }
+        }
+    }
 }

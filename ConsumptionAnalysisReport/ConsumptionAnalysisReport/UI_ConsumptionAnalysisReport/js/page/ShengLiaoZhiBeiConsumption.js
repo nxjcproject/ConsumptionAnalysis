@@ -9,8 +9,9 @@ $(function () {
     QueryReportFun();
 });
 
+var m_searchDate = '';
 function QueryReportFun() {
-    var m_searchDate = $('#startDate').datebox('getValue');
+    m_searchDate = $('#startDate').datebox('getValue');
     var dataToSend = '{m_searchDate:"' + m_searchDate + '"}';
     var win = $.messager.progress({
         title: '请稍后',
@@ -274,4 +275,42 @@ function myformatter(date) {
     //获取月份
     var m = date.getMonth() + 1;
     return y + '-' + m;
+}
+
+function ExportFileFun() {
+    var m_FunctionName = "ExcelStream";
+    var m_Parameter1 = GetDataGridTableHtml("DataGrid_ReportTable", "生料制备工序峰谷平用电分析", m_searchDate);
+    var m_Parameter2 = "";
+
+    var m_ReplaceAlllt = new RegExp("<", "g");
+    var m_ReplaceAllgt = new RegExp(">", "g");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
+
+    var form = $("<form id = 'ExportFile'>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '');
+    form.attr('method', 'post');
+    form.attr('action', "ShengLiaoZhiBeiConsumption.aspx");
+
+    var input_Method = $('<input>');
+    input_Method.attr('type', 'hidden');
+    input_Method.attr('name', 'myFunctionName');
+    input_Method.attr('value', m_FunctionName);
+    var input_Data1 = $('<input>');
+    input_Data1.attr('type', 'hidden');
+    input_Data1.attr('name', 'myParameter1');
+    input_Data1.attr('value', m_Parameter1);
+    var input_Data2 = $('<input>');
+    input_Data2.attr('type', 'hidden');
+    input_Data2.attr('name', 'myParameter2');
+    input_Data2.attr('value', m_Parameter2);
+
+    $('body').append(form);  //将表单放置在web中 
+    form.append(input_Method);   //将查询参数控件提交到表单上
+    form.append(input_Data1);   //将查询参数控件提交到表单上
+    form.append(input_Data2);   //将查询参数控件提交到表单上
+    form.submit();
+    //释放生成的资源
+    form.remove();
 }

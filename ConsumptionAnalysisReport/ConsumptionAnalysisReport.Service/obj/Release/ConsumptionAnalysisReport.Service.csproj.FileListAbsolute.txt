@@ -44,3 +44,9 @@ C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\Consump
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.csprojResolveAssemblyReference.cache
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.dll
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\obj\Release\ConsumptionAnalysisReport.Service.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\ConsumptionAnalysisReport.Infrastructure.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\EnergyConsumption.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\SqlServerDataAdapter.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\UpDownLoadFiles.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\ConsumptionAnalysisReport.Infrastructure.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport.Service\bin\Release\RunIndicators.pdb

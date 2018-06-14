@@ -26,7 +26,7 @@
             <div id="TableContentDiv">
                 <div style="height: 28px;margin-top:2px;">
                     <span style="margin-left: 15px;">查询时间：</span><input id="startDate" type="text" class="easyui-datebox" required="required" style="width: 100px;" />
-                    <span style="margin-left: 10px;"></span><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="QueryReportFun();">查询</a>
+                    <span style="margin-left: 10px;"></span><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="QueryReportFun();">查询</a>
                 </div>
                 <div>
                     <div id="toolbar_ReportTable" style="display: none; text-align: center; vertical-align: middle; height: 30px; padding-top: 7px;">

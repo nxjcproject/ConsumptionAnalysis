@@ -68,5 +68,13 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             DataTable table = dataFactory.Query(string.Format(queryString, searchDate, m_OrganizationCondition, m_VariableId));
             return table;
         }
+
+        public static void ExportExcelFile(string myFileType, string myFileName, string myData)
+        {
+            if (myFileType == "xls")
+            {
+                UpDownLoadFiles.DownloadFile.ExportExcelFile(myFileName, myData);
+            }
+        }
     }
 }

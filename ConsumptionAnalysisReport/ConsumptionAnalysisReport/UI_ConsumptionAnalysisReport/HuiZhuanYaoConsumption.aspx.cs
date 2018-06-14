@@ -14,13 +14,23 @@ namespace ConsumptionAnalysisReport.UI_ConsumptionAnalysisReport
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //以下是接收js脚本中post过来的参数
+            string m_FunctionName = Request.Form["myFunctionName"] == null ? "" : Request.Form["myFunctionName"].ToString();             //方法名称,调用后台不同的方法
+            string m_Parameter1 = Request.Form["myParameter1"] == null ? "" : Request.Form["myParameter1"].ToString();                   //方法的参数名称1
+            string m_Parameter2 = Request.Form["myParameter2"] == null ? "" : Request.Form["myParameter2"].ToString();                   //方法的参数名称2
+            if (m_FunctionName == "ExcelStream")
+            {
+                //ExportFile("xls", "导出报表1.xls");
+                string m_ExportTable = m_Parameter1.Replace("&lt;", "<");
+                m_ExportTable = m_ExportTable.Replace("&gt;", ">");
+                HuiZhuanYaoConsumptionService.ExportExcelFile("xls", m_Parameter2 + "回转窑系统工序电耗对比.xls", m_ExportTable);
+            }
         }
 
         [WebMethod]
-        public static string GetHZYConsumptionInfo(string m_SelectFirstTime, string m_SelectSecondTime, string m_selectThirdTime)
+        public static string GetHZYConsumptionInfo(string m_SelectFirstTime, string m_SelectSecondTime, string m_SelectThirdTime)
         {
-            DataTable table = HuiZhuanYaoConsumptionService.GetHZYConsumptionTable(m_SelectFirstTime, m_SelectSecondTime, m_selectThirdTime);
+            DataTable table = HuiZhuanYaoConsumptionService.GetHZYConsumptionTable(m_SelectFirstTime, m_SelectSecondTime, m_SelectThirdTime);
             string json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
             return json;
         }

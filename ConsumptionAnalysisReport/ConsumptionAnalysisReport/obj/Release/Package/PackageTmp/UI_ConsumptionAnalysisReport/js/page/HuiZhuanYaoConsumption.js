@@ -9,11 +9,12 @@ $(function () {
     LoadDataGrid({ "rows": [], "total": 0 });
     QueryReportFun();
 });
+
+var m_SelectFirstTime = null;
+var m_SelectSecondTime = null;
+var m_SelectThirdTime = null;
 function QueryReportFun() {
     var m_SelectMonth = $('#startDate').datebox('getValue');
-    var m_SelectFirstTime = null;
-    var m_selectSecondTime = null;
-    var m_selectThirdTime = null;
     var strMonth = parseInt(m_SelectMonth.substring(5));
     firstMonthTitle = (strMonth - 2) > 0 ? (strMonth - 2) : (12 + strMonth - 2);
     firstMonthTitle = firstMonthTitle + "月";
@@ -38,10 +39,10 @@ function QueryReportFun() {
 
     if (strMonth >= 10) {
 
-        m_selectThirdTime = m_SelectMonth.substring(0, 5) + strMonth;
+        m_SelectThirdTime = m_SelectMonth.substring(0, 5) + strMonth;
     }
     else {
-        m_selectThirdTime = m_SelectMonth.substring(0, 5) + '0' + (strMonth - 0);
+        m_SelectThirdTime = m_SelectMonth.substring(0, 5) + '0' + (strMonth - 0);
     }
 
     var win = $.messager.progress({
@@ -51,7 +52,7 @@ function QueryReportFun() {
     $.ajax({
         type: "POST",
         url: "HuiZhuanYaoConsumption.aspx/GetHZYConsumptionInfo",
-        data: '{m_SelectFirstTime: "' + m_SelectFirstTime + '", m_SelectSecondTime: "' + m_SelectSecondTime + '", m_selectThirdTime: "' + m_selectThirdTime + '"}',
+        data: '{m_SelectFirstTime: "' + m_SelectFirstTime + '", m_SelectSecondTime: "' + m_SelectSecondTime + '", m_SelectThirdTime: "' + m_SelectThirdTime + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -346,4 +347,42 @@ function myformatter(date) {
     //获取月份
     var m = date.getMonth() + 1;
     return y + '-' + m;
+}
+
+function ExportFileFun() {
+    var m_FunctionName = "ExcelStream";
+    var m_Parameter1 = GetDataGridTableHtml("DataGrid_ReportTable", "回转窑系统工序电耗对比", m_SelectFirstTime + ',' + m_SelectSecondTime + ',' + m_SelectThirdTime);
+    var m_Parameter2 = "";
+
+    var m_ReplaceAlllt = new RegExp("<", "g");
+    var m_ReplaceAllgt = new RegExp(">", "g");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
+
+    var form = $("<form id = 'ExportFile'>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '');
+    form.attr('method', 'post');
+    form.attr('action', "HuiZhuanYaoConsumption.aspx");
+
+    var input_Method = $('<input>');
+    input_Method.attr('type', 'hidden');
+    input_Method.attr('name', 'myFunctionName');
+    input_Method.attr('value', m_FunctionName);
+    var input_Data1 = $('<input>');
+    input_Data1.attr('type', 'hidden');
+    input_Data1.attr('name', 'myParameter1');
+    input_Data1.attr('value', m_Parameter1);
+    var input_Data2 = $('<input>');
+    input_Data2.attr('type', 'hidden');
+    input_Data2.attr('name', 'myParameter2');
+    input_Data2.attr('value', m_Parameter2);
+
+    $('body').append(form);  //将表单放置在web中 
+    form.append(input_Method);   //将查询参数控件提交到表单上
+    form.append(input_Data1);   //将查询参数控件提交到表单上
+    form.append(input_Data2);   //将查询参数控件提交到表单上
+    form.submit();
+    //释放生成的资源
+    form.remove();
 }

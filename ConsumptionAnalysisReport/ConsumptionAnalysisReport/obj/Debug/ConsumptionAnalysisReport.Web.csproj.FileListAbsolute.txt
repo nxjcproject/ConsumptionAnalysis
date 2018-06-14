@@ -73,3 +73,10 @@ C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\Consump
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport\obj\Debug\ConsumptionAnalysisReport.Web.csprojResolveAssemblyReference.cache
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport\obj\Debug\ConsumptionAnalysisReport.dll
 C:\工作\编程\恒拓软件\三层框架V3.1\ConsumptionAnalysisReport\ConsumptionAnalysisReport\obj\Debug\ConsumptionAnalysisReport.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport\bin\RunIndicators.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport\bin\mDbDataAdaper.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport\bin\InternalMemeryRestore.dll
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport\bin\WebStyleBaseForEnergy.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport\bin\RunIndicators.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport\bin\mDbDataAdaper.pdb
+C:\Users\Administrator\Desktop\ConsumptionAnalysis\ConsumptionAnalysisReport\ConsumptionAnalysisReport\bin\UpDownLoadFiles.dll

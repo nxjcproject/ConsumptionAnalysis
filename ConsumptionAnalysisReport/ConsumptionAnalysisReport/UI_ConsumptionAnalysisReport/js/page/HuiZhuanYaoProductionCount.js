@@ -9,8 +9,9 @@ $(function () {
     QueryReportFun();
 });
 
+var m_SelectTime = '';
 function QueryReportFun() {
-    var m_SelectTime = $('#startDate').datebox('getValue');
+    m_SelectTime = $('#startDate').datebox('getValue');
     var win = $.messager.progress({
         title: '请稍后',
         msg: '数据载入中...'
@@ -50,15 +51,15 @@ function LoadDataGrid(myData) {
            { width: '320', title: '生料产量', colspan: 3, align: 'center' },
            { width: '320', title: '煤粉产量', colspan: 3, align: 'center' },
            { width: '320', title: '熟料产量', colspan: 3, align: 'center' }],
-           [{ width: '120', title: '盘库', field: '1', align: 'center', styler: cellStyler_crosspurple },
-            { width: '120', title: 'DCS', field: '2', align: 'center', styler: cellStyler_crosspurple },
-            { width: '80', title: '增减比例', field: '3', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(2, value, row, index); } },
-            { width: '120', title: '盘库', field: '4', align: 'center', styler: cellStyler_crosspurple },
-            { width: '120', title: 'DCS', field: '5', align: 'center', styler: cellStyler_crosspurple },
-            { width: '80', title: '增减比例', field: '6', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(5, value, row, index); } },
-            { width: '120', title: '盘库', field: '7', align: 'center', styler: cellStyler_crosspurple },
-            { width: '120', title: 'DCS', field: '8', align: 'center', styler: cellStyler_crosspurple },
-            { width: '80', title: '增减比例', field: '9', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(8, value, row, index); } }
+           [{ width: '120', title: '盘库', field: 'A1', align: 'center', styler: cellStyler_crosspurple },
+            { width: '120', title: 'DCS', field: 'A2', align: 'center', styler: cellStyler_crosspurple },
+            { width: '80', title: '增减比例', field: 'A3', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(2, value, row, index); } },
+            { width: '120', title: '盘库', field: 'A4', align: 'center', styler: cellStyler_crosspurple },
+            { width: '120', title: 'DCS', field: 'A5', align: 'center', styler: cellStyler_crosspurple },
+            { width: '80', title: '增减比例', field: 'A6', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(5, value, row, index); } },
+            { width: '120', title: '盘库', field: 'A7', align: 'center', styler: cellStyler_crosspurple },
+            { width: '120', title: 'DCS', field: 'A8', align: 'center', styler: cellStyler_crosspurple },
+            { width: '80', title: '增减比例', field: 'A9', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(8, value, row, index); } }
         ]],
         onLoadSuccess: function (data) {
             var rowmark = 1;
@@ -90,7 +91,7 @@ function SetMinMaxValue(myData) {
         for (var i = 0; i < myData["rows"].length; i++) {
             for (var j = 0; j < MaxColumnCount; j++) {
                 var m_ValueTemp = myData["rows"][i][(j + 1).toString()];
-                if (m_ValueTemp != "") {
+                if (m_ValueTemp != "" && m_ValueTemp != null) {
                     var m_FloatValueTemp = Math.abs(parseFloat(m_ValueTemp.replace("%", "")));//因为比较偏差,因此取绝对值
                     if (MaxValueArray[j] < m_FloatValueTemp || MaxValueArray[j] == -1) {
                         MaxValueArray[j] = m_FloatValueTemp;
@@ -260,4 +261,42 @@ function myformatter(date) {
     //获取月份
     var m = date.getMonth() + 1;
     return y + '-' + m;
+}
+
+function ExportFileFun() {
+    var m_FunctionName = "ExcelStream";
+    var m_Parameter1 = GetDataGridTableHtml("DataGrid_ReportTable", "回转窑系统产量统计", m_SelectTime);
+    var m_Parameter2 = "";
+
+    var m_ReplaceAlllt = new RegExp("<", "g");
+    var m_ReplaceAllgt = new RegExp(">", "g");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
+
+    var form = $("<form id = 'ExportFile'>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '');
+    form.attr('method', 'post');
+    form.attr('action', "HuiZhuanYaoProductionCount.aspx");
+
+    var input_Method = $('<input>');
+    input_Method.attr('type', 'hidden');
+    input_Method.attr('name', 'myFunctionName');
+    input_Method.attr('value', m_FunctionName);
+    var input_Data1 = $('<input>');
+    input_Data1.attr('type', 'hidden');
+    input_Data1.attr('name', 'myParameter1');
+    input_Data1.attr('value', m_Parameter1);
+    var input_Data2 = $('<input>');
+    input_Data2.attr('type', 'hidden');
+    input_Data2.attr('name', 'myParameter2');
+    input_Data2.attr('value', m_Parameter2);
+
+    $('body').append(form);  //将表单放置在web中 
+    form.append(input_Method);   //将查询参数控件提交到表单上
+    form.append(input_Data1);   //将查询参数控件提交到表单上
+    form.append(input_Data2);   //将查询参数控件提交到表单上
+    form.submit();
+    //释放生成的资源
+    form.remove();
 }
