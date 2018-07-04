@@ -73,7 +73,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr2["A6"] = "rootsBlower1 + rootsBlower2 + rootsBlower3";
             dr2["A7"] = "highTemperatureFan";
             dr2["A8"] = "kilnHeadExhaustFan";
-            dr2["A9"] = "clinkerF1A1 + clinkerF1A2 + clinkerF5AC + clinkerF3AC + clinkerF2AC";        //将来加表
+            dr2["A9"] = "clinkerF1AC + clinkerF2AC + clinkerF3AC + clinkerF4AC + clinkerF5_AC + clinkerF6AC";        //将来加表
             table.Rows.Add(dr2);
 
             DataRow dr3 = table.NewRow();
@@ -117,7 +117,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr5["A6"] = "coalMilRootsBlower1 + coalMilRootsBlower2 + coalMilRootsBlower3";
             dr5["A7"] = "highTemperatureFan";
             dr5["A8"] = "kilnHeadExhaustFan";
-            dr5["A9"] = "clinkerF1AC + clinkerF2AC + clinkerF3AC + clinkerF4AC + clinkerF5AC + clinkerF6AC + clinkerF7AC + clinkerF8AC + clinkerF9AC + clinkerF10AC + clinkerF11AC";
+            dr5["A9"] = "clinkerF1AC + clinkerF2AC + clinkerF3AC + clinkerF4AC + clinkerF5AC + clinkerF6AC";
             table.Rows.Add(dr5);
 
             DataRow dr6 = table.NewRow();
@@ -215,7 +215,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr12["A6"] = "coalMilRootsBlower13 + coalMilRootsBlower14 + coalMilRootsBlower15";
             dr12["A7"] = "highTemperatureFan";
             dr12["A8"] = "kilnHeadExhaustFan";
-            dr12["A9"] = "grateCoolerFan11 + grateCoolerFan10 + grateCoolerFan07 + grateCoolerFan13 + grateCoolerFan12 + grateCoolerFan03 + grateCoolerFan04 + grateCoolerFan05 + grateCoolerFan06 + grateCoolerFan08 + grateCoolerFan09";
+            dr12["A9"] = "grateCoolerFan11 + grateCoolerFan10 + grateCoolerFan07 + grateCoolerFan13 + grateCoolerFan12 + grateCoolerFan06";
             table.Rows.Add(dr12);
 
             DataRow dr13 = table.NewRow();

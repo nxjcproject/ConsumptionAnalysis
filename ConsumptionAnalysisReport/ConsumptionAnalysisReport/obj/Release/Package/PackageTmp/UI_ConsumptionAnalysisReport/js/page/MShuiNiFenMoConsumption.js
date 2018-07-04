@@ -52,7 +52,7 @@ function LoadDataGrid(myData) {
            { width: '140', title: '辊压机循环提升机', field: 'A3', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(2, value, row, index); } },
            { width: '125', title: '辊压机循环风机', field: 'A4', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(3, value, row, index); } },
            { width: '100', title: '水泥磨', field: 'A5', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(4, value, row, index); } },
-           { width: '107', title: '水泥磨选粉剂', field: 'A6', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(5, value, row, index); } },
+           { width: '107', title: '水泥磨选粉机', field: 'A6', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(5, value, row, index); } },
            { width: '100', title: '出磨提升机', field: 'A7', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(6, value, row, index); } },
            { width: '100', title: '磨尾排风机', field: 'A8', align: 'center', styler: function (value, row, index) { return SetBackgroundColor(7, value, row, index); } }
         ]],
