@@ -73,7 +73,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr2["A6"] = "rootsBlower1 + rootsBlower2 + rootsBlower3";
             dr2["A7"] = "highTemperatureFan";
             dr2["A8"] = "kilnHeadExhaustFan";
-            dr2["A9"] = "clinkerF1AC + clinkerF2AC + clinkerF3AC + clinkerF4AC + clinkerF5_AC + clinkerF6AC";        //将来加表
+            dr2["A9"] = "clinkerF1AC + clinkerF2AC + clinkerF3AC + clinkerF4AC + clinkerF5AC + clinkerF6AC";        //将来加表
             table.Rows.Add(dr2);
 
             DataRow dr3 = table.NewRow();
