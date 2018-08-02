@@ -277,15 +277,15 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
                     dr4["ValleyB"] = Convert.ToDecimal(dr4["ValleyB"].ToString()) + Convert.ToDecimal(table.Rows[i]["ValleyB"].ToString());
                     dr4["FlatB"] = Convert.ToDecimal(dr4["FlatB"].ToString()) + Convert.ToDecimal(table.Rows[i]["FlatB"].ToString());
                 }
-                else if (table.Rows[i]["CompanyName"].ToString() == "六盘山水泥")
-                {
-                    dtnewrow4Index++;
-                    dr5["productline"] = "合计";
-                    dr5["TotalPeakValleyFlatB"] = Convert.ToDecimal(dr5["TotalPeakValleyFlatB"].ToString()) + Convert.ToDecimal(table.Rows[i]["TotalPeakValleyFlatB"].ToString());
-                    dr5["PeakB"] = Convert.ToDecimal(dr5["PeakB"].ToString()) + Convert.ToDecimal(table.Rows[i]["PeakB"].ToString());
-                    dr5["ValleyB"] = Convert.ToDecimal(dr5["ValleyB"].ToString()) + Convert.ToDecimal(table.Rows[i]["ValleyB"].ToString());
-                    dr5["FlatB"] = Convert.ToDecimal(dr5["FlatB"].ToString()) + Convert.ToDecimal(table.Rows[i]["FlatB"].ToString());
-                }
+                //else if (table.Rows[i]["CompanyName"].ToString() == "六盘山水泥")
+                //{
+                //    dtnewrow4Index++;
+                //    dr5["productline"] = "合计";
+                //    dr5["TotalPeakValleyFlatB"] = Convert.ToDecimal(dr5["TotalPeakValleyFlatB"].ToString()) + Convert.ToDecimal(table.Rows[i]["TotalPeakValleyFlatB"].ToString());
+                //    dr5["PeakB"] = Convert.ToDecimal(dr5["PeakB"].ToString()) + Convert.ToDecimal(table.Rows[i]["PeakB"].ToString());
+                //    dr5["ValleyB"] = Convert.ToDecimal(dr5["ValleyB"].ToString()) + Convert.ToDecimal(table.Rows[i]["ValleyB"].ToString());
+                //    dr5["FlatB"] = Convert.ToDecimal(dr5["FlatB"].ToString()) + Convert.ToDecimal(table.Rows[i]["FlatB"].ToString());
+                //}
 
             }
             if (dtnewrow0Index != 0)

@@ -192,7 +192,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
                 {
                     for (int i = 0; i < table.Rows.Count; i++)
                     {
-                        if(i==0)
+                        if (i == 0)
                         {
                             m_ReturnString = string.Format(" (B.VariableId = '{0}' and B.TimeStamp = '{1}')", table.Rows[i]["VariableId"].ToString(), table.Rows[i]["TimeStamp"].ToString());
                         }
@@ -450,19 +450,19 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr10["A9"] = ((Convert.ToDecimal(wareHouseTable.Rows[9]["Clinker"]) - Convert.ToDecimal(newdt.Rows[47]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[47]["TotalProduction"]) * 100).ToString("0.00") + "%";
             m_resultTable.Rows.Add(dr10);
 
-            DataRow dr11 = m_resultTable.NewRow();
-            dr11["CompanyName"] = "六盘山水泥";
-            dr11["ProductionLine"] = "1#";
-            dr11["A1"] = wareHouseTable.Rows[10]["RawMaterial"];//生料
-            dr11["A4"] = wareHouseTable.Rows[10]["Coal"];//煤粉
-            dr11["A7"] = wareHouseTable.Rows[10]["Clinker"]; ;//熟料
-            dr11["A2"] = Convert.ToDecimal(newdt.Rows[7]["TotalProduction"]).ToString("0.00");//生料
-            dr11["A5"] = Convert.ToDecimal(newdt.Rows[6]["TotalProduction"]).ToString("0.00");//煤粉
-            dr11["A8"] = Convert.ToDecimal(newdt.Rows[8]["TotalProduction"]).ToString("0.00");//熟料
-            dr11["A3"] = ((Convert.ToDecimal(wareHouseTable.Rows[10]["RawMaterial"]) - Convert.ToDecimal(newdt.Rows[7]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[7]["TotalProduction"]) * 100).ToString("0.00") + "%";
-            dr11["A6"] = ((Convert.ToDecimal(wareHouseTable.Rows[10]["Coal"]) - Convert.ToDecimal(newdt.Rows[6]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[6]["TotalProduction"]) * 100).ToString("0.00") + "%";
-            dr11["A9"] = ((Convert.ToDecimal(wareHouseTable.Rows[10]["Clinker"]) - Convert.ToDecimal(newdt.Rows[8]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[8]["TotalProduction"]) * 100).ToString("0.00") + "%";
-            m_resultTable.Rows.Add(dr11);
+            //DataRow dr11 = m_resultTable.NewRow();
+            //dr11["CompanyName"] = "六盘山水泥";
+            //dr11["ProductionLine"] = "1#";
+            //dr11["A1"] = wareHouseTable.Rows[10]["RawMaterial"];//生料
+            //dr11["A4"] = wareHouseTable.Rows[10]["Coal"];//煤粉
+            //dr11["A7"] = wareHouseTable.Rows[10]["Clinker"]; ;//熟料
+            //dr11["A2"] = Convert.ToDecimal(newdt.Rows[7]["TotalProduction"]).ToString("0.00");//生料
+            //dr11["A5"] = Convert.ToDecimal(newdt.Rows[6]["TotalProduction"]).ToString("0.00");//煤粉
+            //dr11["A8"] = Convert.ToDecimal(newdt.Rows[8]["TotalProduction"]).ToString("0.00");//熟料
+            //dr11["A3"] = ((Convert.ToDecimal(wareHouseTable.Rows[10]["RawMaterial"]) - Convert.ToDecimal(newdt.Rows[7]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[7]["TotalProduction"]) * 100).ToString("0.00") + "%";
+            //dr11["A6"] = ((Convert.ToDecimal(wareHouseTable.Rows[10]["Coal"]) - Convert.ToDecimal(newdt.Rows[6]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[6]["TotalProduction"]) * 100).ToString("0.00") + "%";
+            //dr11["A9"] = ((Convert.ToDecimal(wareHouseTable.Rows[10]["Clinker"]) - Convert.ToDecimal(newdt.Rows[8]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[8]["TotalProduction"]) * 100).ToString("0.00") + "%";
+            //m_resultTable.Rows.Add(dr11);
 
             DataRow dr12 = m_resultTable.NewRow();
             dr12["CompanyName"] = "天水水泥";
@@ -533,7 +533,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr16["A6"] = ((Convert.ToDecimal(wareHouseTable.Rows[15]["Coal"]) - Convert.ToDecimal(newdt.Rows[3]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[3]["TotalProduction"]) * 100).ToString("0.00") + "%";
             dr16["A9"] = ((Convert.ToDecimal(wareHouseTable.Rows[15]["Clinker"]) - Convert.ToDecimal(newdt.Rows[5]["TotalProduction"])) / Convert.ToDecimal(newdt.Rows[5]["TotalProduction"]) * 100).ToString("0.00") + "%";
             m_resultTable.Rows.Add(dr16);
-           
+
             return m_resultTable;
         }
 
@@ -557,7 +557,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             table.Columns.Add(dc3);
             table.Columns.Add(dc4);
             if (m_selectTime == "2017-11")
-            {              
+            {
                 DataRow dr1 = table.NewRow();
                 dr1["CheckWarehouseTime"] = "2017-11";
                 dr1["RawMaterial"] = "94328.1";
@@ -669,7 +669,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
                 dr16["Coal"] = "5716.0";
                 dr16["Clinker"] = "30464.0";
                 table.Rows.Add(dr16);
-            }         
+            }
             return table;
         }
 

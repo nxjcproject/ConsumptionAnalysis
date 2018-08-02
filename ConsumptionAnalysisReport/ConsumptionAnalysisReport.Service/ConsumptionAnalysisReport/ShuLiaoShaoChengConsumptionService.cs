@@ -190,19 +190,19 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr10["A9"] = "fanV1 + fanV2 + fanV3 + fanV4 + fanV5 + fanV6 + fanV7 + fanV8";    //篦冷机风机
             table.Rows.Add(dr10);
 
-            DataRow dr11 = table.NewRow();
-            dr11["CompanyName"] = "六盘山水泥";
-            dr11["ProductionLine"] = "zc_nxjc_lpsc_lpsf_clinker01";
-            dr11["A1"] = "clinkerBurning";
-            dr11["A2"] = "kilnMainMotor";
-            dr11["A3"] = DBNull.Value;
-            dr11["A4"] = "clinkerHoist";
-            dr11["A5"] = DBNull.Value;
-            dr11["A6"] = DBNull.Value;
-            dr11["A7"] = "highTemperatureFan";
-            dr11["A8"] = "kilnHeadExhaustFan";
-            dr11["A9"] = "clinkerF2M + clinkerF3M + clinkerF4M + clinkerF5M + clinkerF6M + clinkerF7M + clinker5730 + clinker5732 + coalMillFan";
-            table.Rows.Add(dr11);
+            //DataRow dr11 = table.NewRow();
+            //dr11["CompanyName"] = "六盘山水泥";
+            //dr11["ProductionLine"] = "zc_nxjc_lpsc_lpsf_clinker01";
+            //dr11["A1"] = "clinkerBurning";
+            //dr11["A2"] = "kilnMainMotor";
+            //dr11["A3"] = DBNull.Value;
+            //dr11["A4"] = "clinkerHoist";
+            //dr11["A5"] = DBNull.Value;
+            //dr11["A6"] = DBNull.Value;
+            //dr11["A7"] = "highTemperatureFan";
+            //dr11["A8"] = "kilnHeadExhaustFan";
+            //dr11["A9"] = "clinkerF2M + clinkerF3M + clinkerF4M + clinkerF5M + clinkerF6M + clinkerF7M + clinker5730 + clinker5732 + coalMillFan";
+            //table.Rows.Add(dr11);
 
             DataRow dr12 = table.NewRow();
             dr12["CompanyName"] = "天水水泥";

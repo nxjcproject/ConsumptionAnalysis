@@ -72,14 +72,14 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr5["FenCompanyName"] = "中宁水泥";
             table.Rows.Add(dr5);
 
-            DataRow dr6 = table.NewRow();
-            dr6["month9"] = 2.37;
-            dr6["month10"] = 2.52;
-            dr6["month11"] = 2.98;
-            dr6["1month11"] = 2.39;
-            dr6["CompanyName"] = "六盘山水泥";
-            dr6["FenCompanyName"] = "六盘山水泥";
-            table.Rows.Add(dr6);
+            //DataRow dr6 = table.NewRow();
+            //dr6["month9"] = 2.37;
+            //dr6["month10"] = 2.52;
+            //dr6["month11"] = 2.98;
+            //dr6["1month11"] = 2.39;
+            //dr6["CompanyName"] = "六盘山水泥";
+            //dr6["FenCompanyName"] = "六盘山水泥";
+            //table.Rows.Add(dr6);
 
             DataRow dr7 = table.NewRow();
             dr7["month9"] = 2.42;
