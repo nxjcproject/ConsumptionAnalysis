@@ -55,7 +55,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr1["A2"] = "rectifierTransformer";           //窑主机
             dr1["A3"] = "rawMaterialLibraryRootsBlower1 + rawMaterialLibraryRootsBlower2 + rawMaterialLibraryRootsBlower3";            //均化库风机 
             dr1["A4"] = "clinkerHoist";            //入窑提升机
-            dr1["A5"] = "oneTimeFan01";         //一次风机
+            dr1["A5"] = "oneTimeFan01 + oneTimeFan";         //一次风机   
             dr1["A6"] = "coalMilRootsBlower1 + coalMilRootsBlower2 + coalMilRootsBlower3";            //送煤风机
             dr1["A7"] = "highTemperatureFan";            //高温风机
             dr1["A8"] = "kilnHeadExhaustFan";            //头排风机
@@ -83,7 +83,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr3["A2"] = "kilnMainMotor";
             dr3["A3"] = "rawMaterialLibraryRootsBlower1 + rawMaterialLibraryRootsBlower2 + rawMaterialLibraryRootsBlower3";
             dr3["A4"] = "clinkerHoist";
-            dr3["A5"] = "oneTimeFan01 + oneTimeFan02";
+            dr3["A5"] = "oneTimeFan01 + oneTimeFan02";   
             dr3["A6"] = "coalMilRootsBlower1 + coalMilRootsBlower2 + coalMilRootsBlower3";
             dr3["A7"] = "highTemperatureFan";
             dr3["A8"] = "kilnHeadExhaustFan";
@@ -253,7 +253,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr15["A2"] = "kilnMainMotor";
             dr15["A3"] = "rawMaterialLibraryRootsBlower1 + rawMaterialLibraryRootsBlower2 + rawMaterialLibraryRootsBlower3 + rawMaterialLibraryRootsBlower4";
             dr15["A4"] = "clinkerHoist1 + clinkerHoist2";
-            dr15["A5"] = "oneTimeFan01 + oneTimeFan02";
+            dr15["A5"] = "oneTimeFanG27 + oneTimeFanG28";
             dr15["A6"] = "coalMilRootsBlower1 + coalMilRootsBlower2 + coalMilRootsBlower3";
             dr15["A7"] = "highTemperatureFan";
             dr15["A8"] = "kilnHeadExhaustFan";

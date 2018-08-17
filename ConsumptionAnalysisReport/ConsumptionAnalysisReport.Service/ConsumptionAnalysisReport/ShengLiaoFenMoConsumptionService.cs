@@ -54,7 +54,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr2["CompanyName"] = "银川水泥";
             dr2["ProductionLine"] = "zc_nxjc_ychc_lsf_clinker02";
             dr2["A1"] = "rawMaterialsGrind";
-            dr2["A2"] = "rawMealGrindingMainMotor";
+            dr2["A2"] = "rollingMachineActionRoller + rollingMachineSettledRoller";
             dr2["A3"] = "rawMealGrindinSystemFan";
             table.Rows.Add(dr2);
 
@@ -142,7 +142,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr12["CompanyName"] = "天水水泥";
             dr12["ProductionLine"] = "zc_nxjc_tsc_tsf_clinker01";
             dr12["A1"] = "rawMaterialsGrind";
-            dr12["A2"] = "rawMealGrindingMainMotor";
+            dr12["A2"] = "rollingMachineActionRoller + rollingMachineSettledRoller";
             dr12["A3"] = "circulatingFan";
             table.Rows.Add(dr12);
 

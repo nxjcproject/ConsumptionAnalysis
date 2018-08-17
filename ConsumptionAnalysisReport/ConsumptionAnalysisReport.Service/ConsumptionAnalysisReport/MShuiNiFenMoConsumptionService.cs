@@ -183,11 +183,11 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr11["ProductionLine"] = "zc_nxjc_klqc_klqf_cementmill01";
             dr11["A1"] = "cementGrind";
             dr11["A2"] = "rollingMachineSettledRoller + rollingMachineActionRoller";
-            dr11["A3"] = "hoist84A01 + hoist84A07";
+            dr11["A3"] = "hoist84A07";
             dr11["A4"] = DBNull.Value;
             dr11["A5"] = "cementMillMainMotor";
             dr11["A6"] = "powderSelectingStorehouse";
-            dr11["A7"] = DBNull.Value;
+            dr11["A7"] = "hoist84A13";
             dr11["A8"] = "mainExhaustFan";
             table.Rows.Add(dr11);
 
@@ -196,11 +196,11 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr12["ProductionLine"] = "zc_nxjc_klqc_klqf_cementmill02";
             dr12["A1"] = "cementGrind";
             dr12["A2"] = "rollingMachineSettledRoller + rollingMachineActionRoller";
-            dr12["A3"] = "hoist84B07 + hoist84B01";
+            dr12["A3"] = "hoist84B07";
             dr12["A4"] = DBNull.Value;
             dr12["A5"] = "cementMillMainMotor";
             dr12["A6"] = "powderSelectingStorehouse";
-            dr12["A7"] = DBNull.Value;
+            dr12["A7"] = "hoist84B13";
             dr12["A8"] = "mainExhaustFan";
             table.Rows.Add(dr12);
 
