@@ -243,7 +243,7 @@ namespace ConsumptionAnalysisReport.Service.ConsumptionAnalysisReport
             dr14["A6"] = "RootsBlower43113 + RootsBlower43114 + RootsBlower43115";
             dr14["A7"] = "highTemperatureFan";
             dr14["A8"] = "kilnHeadExhaustFan";
-            dr14["A9"] = "coolingFanV3 + coolingFanV1 + coolingFanV2 + coolingFanV6 + coolingFanV7 + coolingFanV4 + coolingFanV5 + coolingFanV8 + coolingFanV10 + coolingFanV11 + coolingFanV9";
+            dr14["A9"] = "coolingFanV3 + coolingFanV1 + coolingFanV2 + coolingFanV6 + coolingFanV7 + coolingFanV4 ";
             table.Rows.Add(dr14);
 
             DataRow dr15 = table.NewRow();
